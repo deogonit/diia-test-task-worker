@@ -35,7 +35,7 @@ Ensure that you have the following installed:
   ```bash
   docker-compose --profile cron up -d
   ```
-  This command starts the services defined under the `cron` profile in detached mode.
+  This command starts database and the demon services which pull and save data every minute. According to the terms of the task, the data should be updated every quarter, but in order to speed up the testing, it was decided to update the data every minute. The results of the worker you can see in file logs/cron.log
 
 - **Stop cron profile**:
   ```bash
@@ -45,7 +45,6 @@ Ensure that you have the following installed:
   ```bash
   docker-compose --profile cron down
   ```
-  Stops the services associated with the `cron` profile.
 
 - **Start script-only profile**:
   ```bash
@@ -55,7 +54,7 @@ Ensure that you have the following installed:
   ```bash
   docker-compose --profile script-only up -d
   ```
-  Starts the services defined under the `script-only` profile in detached mode.
+  This command starts database and only the worker, which will exit after executino. The logs you can see using docker or docker-compose utillity.
 
 - **Stop script-only profile**:
   ```bash
@@ -65,7 +64,6 @@ Ensure that you have the following installed:
   ```bash
   docker-compose --profile script-only down
   ```
-  Stops the services associated with the `script-only` profile.
 
 ### Python Script Command
 
@@ -77,7 +75,6 @@ Ensure that you have the following installed:
   ```bash
   python src/main.py
   ```
-  This command runs the Python script located at `src/main.py`.
 
 ### Ruff Commands
 
@@ -89,7 +86,6 @@ Ensure that you have the following installed:
   ```bash
   ruff check src/
   ```
-  Runs `ruff` to check for linting issues in the `src` directory.
 
 - **Format the code**:
   ```bash
@@ -99,4 +95,3 @@ Ensure that you have the following installed:
   ```bash
   ruff format src/
   ```
-  Runs `ruff` to format the code in the `src` directory.
