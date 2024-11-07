@@ -1,0 +1,35 @@
+[project]
+name = "diia-test-task-worker"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "psutil>=6.1.0",
+    "psycopg[binary]>=3.2.3",
+    "requests>=2.32.3",
+    "ruff>=0.7.2",
+]
+
+[tool.ruff]
+line-length = 80
+exclude = [
+    ".git",
+    "__pycache__",
+    "build",
+    "dist",
+    ".venv",
+    "env",
+]
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["F", "E", "W", "B", "S", "G", "I", "TRY"]
+fixable = ["ALL"]
+unfixable = ["B"]
+
+[tool.ruff.format]
+quote-style = "double"
+
+[tool.ruff.lint.mccabe]
+max-complexity = 5
